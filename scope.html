@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Literature Review – Dyslexi E-Learning App</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- AOS Animation Library (for fade-in) -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:700,900|Poppins:400,500,700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: #f3faf7;
+            background-image: linear-gradient(rgba(255,255,255,0.7), rgba(243,250,247,0.88)), url('./images/b3.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+        .glass-card {
+            backdrop-filter: blur(12px);
+            border-radius: 1.5rem;
+            box-shadow: 0 8px 32px 0 rgba(70,90,110,0.09);
+            border: 1px solid rgba(150,150,180,0.13);
+            cursor: pointer;
+            transition: box-shadow 0.2s, transform 0.2s;
+        }
+        .glass-card:hover {
+            transform: translateY(-4px) scale(1.012);
+            box-shadow: 0 16px 56px 0 rgba(76,99,190,0.14);
+        }
+        .card-content {
+            transition: max-height 0.4s cubic-bezier(.4,2,.6,1), opacity 0.4s;
+            overflow: hidden;
+        }
+        .icon-circle {
+            box-shadow: 0 2px 8px rgba(90,100,190,0.08);
+        }
+        .lit { background: rgba(140,160,255,0.32); }
+        .gap { background: rgba(240,180,255,0.22); }
+        .obj { background: rgba(180,240,200,0.23); }
+        .scope { background: rgba(240,240,160,0.18); }
+        .feat { background: rgba(180,220,250,0.22); }
+        .lim { background: rgba(255,180,180,0.19); }
+        .arrow {
+            display: inline-block;
+            transition: transform 0.3s cubic-bezier(.4,2,.6,1);
+            vertical-align: middle;
+        }
+        .arrow.open {
+            transform: rotate(180deg);
+        }
+        .show-more-btn {
+            color: #6366f1;
+            background: transparent;
+            border: none;
+            font-weight: 500;
+            cursor: pointer;
+            padding: 0.2rem 0.5rem;
+            margin-left: -0.4rem;
+            margin-top: 1.1rem;
+            transition: color 0.2s;
+        }
+        .show-more-btn:hover {
+            color: #4338ca;
+            text-decoration: underline;
+        }
+        /* Custom Heading Styles */
+        .pretty-heading {
+            font-family: 'Montserrat', 'Poppins', Arial, sans-serif;
+            letter-spacing: -0.02em;
+        }
+    </style>
+</head>
+<body>
+<header class="sticky top-0 bg-white bg-opacity-80 shadow z-50">
+    <nav class="flex items-center justify-between px-6 py-4" aria-label="Global">
+        <div class="flex items-center">
+            <img src="./images/b1.WEBP" width="50" alt="Dyslexi Logo" class="rounded shadow" />
+            <span class="ml-3 text-2xl font-bold text-indigo-700 tracking-tight pretty-heading">Dyslexi</span>
+        </div>
+        <div class="space-x-6 hidden md:flex">
+            <a href="index.html" class="text-gray-900 font-semibold hover:text-indigo-600">Home</a>
+            <a href="scope.html" class="text-gray-900 font-semibold hover:text-indigo-600">Scope</a>
+            <a href="about.html" class="text-gray-900 font-semibold hover:text-indigo-600">About</a>
+            <a href="documents.html" class="text-gray-900 font-semibold hover:text-indigo-600">Documents</a>
+            <a href="domain.html" class="text-gray-900 font-semibold hover:text-indigo-600">Domain</a>
+            <a href="contact.html" class="text-gray-900 font-semibold hover:text-indigo-600">Contact</a>
+        </div>
+    </nav>
+</header>
+
+<main class="max-w-4xl mx-auto pt-10 pb-20 px-2 md:px-8 space-y-8">
+
+    <!-- LITERATURE REVIEW CARD -->
+    <div class="glass-card lit w-full p-8 flex gap-5 items-start group" data-aos="fade-up" id="card-lit">
+        <span class="icon-circle inline-block bg-indigo-200 p-4 rounded-full mt-1">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9 text-indigo-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 20h9m-9 0a6 6 0 00-6-6H3a6 6 0 016 6zm0 0v-2a4 4 0 00-4-4H5a4 4 0 014 4z" />
+            </svg>
+        </span>
+        <div class="flex-1">
+            <button class="flex items-center w-full text-left" onclick="toggleCard('lit');event.stopPropagation();">
+                <h2 class="text-3xl font-black text-indigo-800 mb-2 flex items-center pretty-heading">
+                    Literature Review
+                </h2>
+                <span id="arrow-lit" class="arrow ml-3 mt-1">
+                    <!-- SVG chevron down arrow -->
+                    <svg width="26" height="26" viewBox="0 0 20 20" fill="none">
+                        <path d="M6 8l4 4 4-4" stroke="#6366f1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+            </button>
+            <div class="card-content" id="lit-content" style="max-height:92px; opacity:0.96;">
+                <p class="text-gray-800 text-xl leading-relaxed font-medium">
+                    Early interventions for dyslexic children have shown significant benefits, especially when tailored to their native language and cognitive profiles. In Sri Lanka, research points to a gap in digital solutions for dyslexic students using Sinhala, with most existing apps focusing on English.
+                </p>
+                <button class="show-more-btn" onclick="toggleCard('lit', true);event.stopPropagation();">Show More Details</button>
+            </div>
+            <div class="card-content" id="lit-full" style="max-height:0; opacity:0;">
+                <p class="text-gray-800 text-xl leading-relaxed mt-4 font-medium">
+                    Children with dyslexia face a range of challenges in reading and writing, especially with complex scripts like Sinhala. Most international research and intervention are focused on English-speaking populations, while local Sri Lankan studies emphasize the urgent need for culturally adapted, digital and multisensory tools for early literacy support. <br><br>
+                    Recent advances globally have included AI-powered handwriting recognition, speech feedback, and gamified activities, but there is a lack of such tools for Sinhala learners. Local studies confirm that early, adaptive, and interactive support using technology—such as real-time feedback on writing and pronunciation, gamified learning, and progress tracking—significantly improves learning outcomes and engagement. Despite this, there are few comprehensive, accessible mobile applications designed specifically for young dyslexic students in Sri Lanka. <br><br>
+                    This project aims to bridge that gap by integrating evidence-based educational technology with local language, curriculum, and the cultural context of Sri Lankan classrooms.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- RESEARCH GAP CARD -->
+    <div class="glass-card gap w-full p-8 flex gap-5 items-start group" data-aos="fade-up" id="card-gap">
+        <span class="icon-circle inline-block bg-pink-200 p-4 rounded-full mt-1">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9 text-pink-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <circle cx="11" cy="11" r="8" stroke="currentColor" stroke-width="2"/>
+                <line x1="21" y1="21" x2="16.65" y2="16.65" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+        </span>
+        <div class="flex-1">
+            <button class="flex items-center w-full text-left" onclick="toggleCard('gap');event.stopPropagation();">
+                <h2 class="text-3xl font-black text-pink-700 mb-2 flex items-center pretty-heading">
+                    Research Gap
+                </h2>
+                <span id="arrow-gap" class="arrow ml-3 mt-1">
+                    <svg width="26" height="26" viewBox="0 0 20 20" fill="none">
+                        <path d="M6 8l4 4 4-4" stroke="#ec4899" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+            </button>
+            <div class="card-content" id="gap-content" style="max-height:92px; opacity:0.96;">
+                <p class="text-gray-800 text-xl leading-relaxed font-medium">
+                    Existing tools rarely support adaptive Sinhala learning. Few integrate real-time feedback, gamification, or progress analytics for Sri Lankan children.
+                </p>
+                <button class="show-more-btn" onclick="toggleCard('gap', true);event.stopPropagation();">Show More Details</button>
+            </div>
+            <div class="card-content" id="gap-full" style="max-height:0; opacity:0;">
+                <p class="text-gray-800 text-xl leading-relaxed mt-4 font-medium">
+                    Globally, most research on digital support for dyslexia targets English or alphabetic languages, leaving children who learn in Sinhala with limited solutions. The gap is wider for mobile apps that combine handwriting, pronunciation, and adaptive feedback for early grades in the Sri Lankan context. Most e-learning apps are not personalized or locally relevant. Our project directly addresses this by developing an app customized to the needs of Sinhala-speaking dyslexic students, with teacher/parent dashboards and progress analytics.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- OBJECTIVES CARD -->
+    <div class="glass-card obj w-full p-8 flex gap-5 items-start group" data-aos="fade-up" id="card-obj">
+        <span class="icon-circle inline-block bg-green-200 p-4 rounded-full mt-1">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9 text-green-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2"/>
+                <circle cx="12" cy="12" r="4" stroke="currentColor" stroke-width="2"/>
+                <circle cx="12" cy="12" r="1" fill="currentColor"/>
+            </svg>
+        </span>
+        <div class="flex-1">
+            <button class="flex items-center w-full text-left" onclick="toggleCard('obj');event.stopPropagation();">
+                <h2 class="text-3xl font-black text-green-700 mb-2 flex items-center pretty-heading">
+                    Objectives
+                </h2>
+                <span id="arrow-obj" class="arrow ml-3 mt-1">
+                    <svg width="26" height="26" viewBox="0 0 20 20" fill="none">
+                        <path d="M6 8l4 4 4-4" stroke="#22c55e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+            </button>
+            <div class="card-content" id="obj-content" style="max-height:92px; opacity:0.96;">
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <span class="mr-3 mt-1">
+                            <svg class="w-6 h-6 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10"/>
+                                <path d="M7 10l2 2 4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <span class="text-lg text-gray-800 font-medium">Improve literacy for Sinhala dyslexic students.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="mr-3 mt-1">
+                            <svg class="w-6 h-6 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10"/>
+                                <path d="M7 10l2 2 4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <span class="text-lg text-gray-800 font-medium">Provide AI-driven adaptive learning.</span>
+                    </li>
+                </ul>
+                <button class="show-more-btn" onclick="toggleCard('obj', true);event.stopPropagation();">Show More Details</button>
+            </div>
+            <div class="card-content" id="obj-full" style="max-height:0; opacity:0;">
+                <ul class="space-y-3 mt-4">
+                    <li class="flex items-start">
+                        <span class="mr-3 mt-1">
+                            <svg class="w-6 h-6 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10"/>
+                                <path d="M7 10l2 2 4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <span class="text-lg text-gray-800 font-medium">Enhance early literacy and cognitive skills of Sinhala-speaking dyslexic children using technology-based, evidence-driven interventions.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="mr-3 mt-1">
+                            <svg class="w-6 h-6 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10"/>
+                                <path d="M7 10l2 2 4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <span class="text-lg text-gray-800 font-medium">Provide real-time, actionable feedback on handwriting and pronunciation using AI (CNN, EfficientNet, ResNet, Random Forest).</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="mr-3 mt-1">
+                            <svg class="w-6 h-6 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10"/>
+                                <path d="M7 10l2 2 4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <span class="text-lg text-gray-800 font-medium">Deliver adaptive learning paths tailored to each child’s strengths, weaknesses, and engagement.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="mr-3 mt-1">
+                            <svg class="w-6 h-6 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10"/>
+                                <path d="M7 10l2 2 4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <span class="text-lg text-gray-800 font-medium">Support teachers and parents with actionable progress dashboards and analytics.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="mr-3 mt-1">
+                            <svg class="w-6 h-6 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10"/>
+                                <path d="M7 10l2 2 4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <span class="text-lg text-gray-800 font-medium">Promote social inclusion and reduce stigma associated with dyslexia in Sri Lankan classrooms.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- SCOPE CARD -->
+    <div class="glass-card scope w-full p-8 flex gap-5 items-start group" data-aos="fade-up" id="card-scope">
+        <span class="icon-circle inline-block bg-yellow-200 p-4 rounded-full mt-1">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9 text-yellow-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <rect x="6" y="4" width="12" height="16" rx="2" stroke="currentColor" stroke-width="2"/>
+                <line x1="9" y1="8" x2="15" y2="8" stroke="currentColor" stroke-width="2"/>
+                <line x1="9" y1="12" x2="15" y2="12" stroke="currentColor" stroke-width="2"/>
+                <line x1="9" y1="16" x2="13" y2="16" stroke="currentColor" stroke-width="2"/>
+            </svg>
+        </span>
+        <div class="flex-1">
+            <button class="flex items-center w-full text-left" onclick="toggleCard('scope');event.stopPropagation();">
+                <h2 class="text-3xl font-black text-yellow-600 mb-2 flex items-center pretty-heading">
+                    Scope of the Project
+                </h2>
+                <span id="arrow-scope" class="arrow ml-3 mt-1">
+                    <svg width="26" height="26" viewBox="0 0 20 20" fill="none">
+                        <path d="M6 8l4 4 4-4" stroke="#facc15" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+            </button>
+            <div class="card-content" id="scope-content" style="max-height:92px; opacity:0.96;">
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <span class="mr-3 mt-1">
+                            <svg class="w-6 h-6 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10"/>
+                                <path d="M7 10l2 2 4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <span class="text-lg text-gray-800 font-medium">Mobile app for Grade 1 Sinhala dyslexic students.</span>
+                    </li>
+                </ul>
+                <button class="show-more-btn" onclick="toggleCard('scope', true);event.stopPropagation();">Show More Details</button>
+            </div>
+            <div class="card-content" id="scope-full" style="max-height:0; opacity:0;">
+                <ul class="space-y-3 mt-4">
+                    <li class="flex items-start">
+                        <span class="mr-3 mt-1">
+                            <svg class="w-6 h-6 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10"/>
+                                <path d="M7 10l2 2 4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <span class="text-lg text-gray-800 font-medium">Development of a mobile application for Grade 1 Sinhala-speaking dyslexic students.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="mr-3 mt-1">
+                            <svg class="w-6 h-6 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10"/>
+                                <path d="M7 10l2 2 4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <span class="text-lg text-gray-800 font-medium">Handwriting, memory, and pronunciation modules with AI-driven assessment and feedback.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="mr-3 mt-1">
+                            <svg class="w-6 h-6 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10"/>
+                                <path d="M7 10l2 2 4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <span class="text-lg text-gray-800 font-medium">Gamified and multi-sensory activities (visual, auditory, tactile) to boost engagement and retention.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="mr-3 mt-1">
+                            <svg class="w-6 h-6 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10"/>
+                                <path d="M7 10l2 2 4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <span class="text-lg text-gray-800 font-medium">Personalized learning activities, adaptive difficulty, and real-time monitoring.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="mr-3 mt-1">
+                            <svg class="w-6 h-6 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10"/>
+                                <path d="M7 10l2 2 4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <span class="text-lg text-gray-800 font-medium">Progress dashboards for students, teachers, and parents.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="mr-3 mt-1">
+                            <svg class="w-6 h-6 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10"/>
+                                <path d="M7 10l2 2 4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <span class="text-lg text-gray-800 font-medium">All content and activities localized for Sri Lankan curriculum and cultural context.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- FEATURES CARD -->
+    <div class="glass-card feat w-full p-8 flex gap-5 items-start group" data-aos="fade-up" id="card-feat">
+        <span class="icon-circle inline-block bg-blue-200 p-4 rounded-full mt-1">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9 text-blue-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path d="M4 17V9a4 4 0 014-4h8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M20 7v8a4 4 0 01-4 4H8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </span>
+        <div class="flex-1">
+            <button class="flex items-center w-full text-left" onclick="toggleCard('feat');event.stopPropagation();">
+                <h2 class="text-3xl font-black text-blue-700 mb-2 flex items-center pretty-heading">
+                    Approach & Features
+                </h2>
+                <span id="arrow-feat" class="arrow ml-3 mt-1">
+                    <svg width="26" height="26" viewBox="0 0 20 20" fill="none">
+                        <path d="M4 8l6 6 6-6" stroke="#60a5fa" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+            </button>
+            <div class="card-content" id="feat-content" style="max-height:92px; opacity:0.96;">
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <span class="mr-3 mt-1">
+                            <svg class="w-6 h-6 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10"/>
+                                <path d="M7 10l2 2 4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <span class="text-lg text-gray-800 font-medium">AI handwriting & pronunciation, gamification, dashboards...</span>
+                    </li>
+                </ul>
+                <button class="show-more-btn" onclick="toggleCard('feat', true);event.stopPropagation();">Show More Details</button>
+            </div>
+            <div class="card-content" id="feat-full" style="max-height:0; opacity:0;">
+                <ul class="space-y-3 mt-4">
+                    <li class="flex items-start">
+                        <span class="mr-3 mt-1">
+                            <svg class="w-6 h-6 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10"/>
+                                <path d="M7 10l2 2 4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <span class="text-lg text-gray-800 font-medium"><strong>Handwriting Module:</strong> Sinhala letter tracing, shape drawing, AI feedback, and camera input.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="mr-3 mt-1">
+                            <svg class="w-6 h-6 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10"/>
+                                <path d="M7 10l2 2 4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <span class="text-lg text-gray-800 font-medium"><strong>Speech Module:</strong> Pronunciation and syllable practice, instant feedback with 1D CNN & MFCC.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="mr-3 mt-1">
+                            <svg class="w-6 h-6 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10"/>
+                                <path d="M7 10l2 2 4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <span class="text-lg text-gray-800 font-medium"><strong>Adaptive Module:</strong> Scrambled sentences, picture storytelling, real-time engagement analysis (ResNet50).</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="mr-3 mt-1">
+                            <svg class="w-6 h-6 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10"/>
+                                <path d="M7 10l2 2 4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <span class="text-lg text-gray-800 font-medium"><strong>Gamification:</strong> Badges, rewards, and progress animations.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="mr-3 mt-1">
+                            <svg class="w-6 h-6 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10"/>
+                                <path d="M7 10l2 2 4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <span class="text-lg text-gray-800 font-medium"><strong>Dashboard:</strong> Real-time progress tracking for teachers/parents.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- LIMITATIONS CARD -->
+    <div class="glass-card lim w-full p-8 flex gap-5 items-start group" data-aos="fade-up" id="card-lim">
+        <span class="icon-circle inline-block bg-red-200 p-4 rounded-full mt-1">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9 text-red-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path d="M12 8v4m0 4h.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M10.29 3.86l-8.59 15A1 1 0 002.71 21h18.58a1 1 0 00.86-1.5l-8.59-15a1 1 0 00-1.72 0z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </span>
+        <div class="flex-1">
+            <button class="flex items-center w-full text-left" onclick="toggleCard('lim');event.stopPropagation();">
+                <h2 class="text-3xl font-black text-red-700 mb-2 flex items-center pretty-heading">
+                    Limitations
+                </h2>
+                <span id="arrow-lim" class="arrow ml-3 mt-1">
+                    <svg width="26" height="26" viewBox="0 0 20 20" fill="none">
+                        <path d="M6 8l4 4 4-4" stroke="#f87171" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </span>
+            </button>
+            <div class="card-content" id="lim-content" style="max-height:92px; opacity:0.96;">
+                <ul class="space-y-3">
+                    <li class="flex items-start">
+                        <span class="mr-3 mt-1">
+                            <svg class="w-6 h-6 text-red-400" fill="currentColor" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10"/>
+                                <path d="M7 10l2 2 4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <span class="text-lg text-gray-800 font-medium">Grade 1, Sinhala only. Android device needed.</span>
+                    </li>
+                </ul>
+                <button class="show-more-btn" onclick="toggleCard('lim', true);event.stopPropagation();">Show More Details</button>
+            </div>
+            <div class="card-content" id="lim-full" style="max-height:0; opacity:0;">
+                <ul class="space-y-3 mt-4">
+                    <li class="flex items-start">
+                        <span class="mr-3 mt-1">
+                            <svg class="w-6 h-6 text-red-400" fill="currentColor" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10"/>
+                                <path d="M7 10l2 2 4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <span class="text-lg text-gray-800 font-medium">Scope limited to Grade 1 and Sinhala language.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="mr-3 mt-1">
+                            <svg class="w-6 h-6 text-red-400" fill="currentColor" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10"/>
+                                <path d="M7 10l2 2 4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <span class="text-lg text-gray-800 font-medium">Android device with camera and microphone required.</span>
+                    </li>
+                    <li class="flex items-start">
+                        <span class="mr-3 mt-1">
+                            <svg class="w-6 h-6 text-red-400" fill="currentColor" viewBox="0 0 20 20">
+                                <circle cx="10" cy="10" r="10"/>
+                                <path d="M7 10l2 2 4-4" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                        </span>
+                        <span class="text-lg text-gray-800 font-medium">No in-app purchases or external integrations in the pilot phase.</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- SYSTEM DIAGRAM (static, not collapsible) -->
+    <div class="glass-card w-full p-10 flex flex-col items-center feat" data-aos="fade-up">
+        <h2 class="text-3xl font-black text-purple-700 mb-4 flex items-center pretty-heading">
+            <span class="inline-block bg-purple-100 p-2 rounded-full mr-2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-9 h-9 text-purple-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="2"/>
+                    <path d="M7 13h3v6H7zM14 8h3v11h-3z" fill="currentColor"/>
+                </svg>
+            </span>
+            System Diagram
+        </h2>
+        <img src="./images/sys.jpeg" alt="System Diagram" class="rounded-xl max-w-full h-auto shadow-lg"
+            style="max-height:400px"
+            onerror="this.onerror=null;this.src='https://via.placeholder.com/500x400?text=System+Diagram+Placeholder';"/>
+    </div>
+</main>
+<footer class="bg-white border-t py-6 text-center">
+    <div class="text-gray-500 text-sm">
+        &copy; 2024 Dyslexi. All Rights Reserved.<br>
+        <span class="font-bold">Group ID: 2024-25-327</span>
+    </div>
+</footer>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script>
+    AOS.init({ once: true, duration: 800 });
+
+    function toggleCard(section, open) {
+        const content = document.getElementById(section + "-content");
+        const full = document.getElementById(section + "-full");
+        const arrow = document.getElementById("arrow-" + section);
+
+        // If explicitly open (from "Show More Details" button) or closed, expand
+        if(open === true || full.style.maxHeight === "0px" || !full.style.maxHeight || full.style.opacity === "0") {
+            content.style.maxHeight = "0px";
+            content.style.opacity = "0";
+            full.style.maxHeight = "800px";
+            full.style.opacity = "1";
+            arrow.classList.add("open");
+            // Scroll smoothly so the card is fully in view
+            setTimeout(() => {
+                document.getElementById("card-" + section).scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 220);
+        } else {
+            content.style.maxHeight = "92px";
+            content.style.opacity = "0.96";
+            full.style.maxHeight = "0px";
+            full.style.opacity = "0";
+            arrow.classList.remove("open");
+        }
+    }
+</script>
+</body>
+</html>
